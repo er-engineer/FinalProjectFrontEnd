@@ -6,10 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-<<<<<<< HEAD
-  title = 'northwind-ng14';
-=======
   title = 'Northwind';
   username:string = "Eren"
->>>>>>> 8c14303 (initial commit)
 }

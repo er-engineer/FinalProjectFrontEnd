@@ -18,10 +18,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-<<<<<<< HEAD
-=======
     "bootstrap": "^5.3.8",
->>>>>>> 8c14303 (initial commit)
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -31,10 +28,7 @@
     "@angular/cli": "~14.2.13",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
-<<<<<<< HEAD
-=======
     "@types/node": "16.0.0",
->>>>>>> 8c14303 (initial commit)
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

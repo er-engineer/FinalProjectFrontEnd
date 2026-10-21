@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
-=======
->>>>>>> 8c14303 (initial commit)
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "rootDir": "./src",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -15,18 +11,14 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
+    "skipLibCheck": true,
     "lib": [
-<<<<<<< HEAD
-      "es2020",
-=======
       "es2018",
->>>>>>> 8c14303 (initial commit)
       "dom"
     ]
   },
@@ -36,8 +28,4 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8c14303 (initial commit)
