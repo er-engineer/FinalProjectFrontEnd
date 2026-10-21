@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
+=======
+>>>>>>> 8c14303 (initial commit)
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -19,7 +22,11 @@
     "target": "es2020",
     "module": "es2020",
     "lib": [
+<<<<<<< HEAD
       "es2020",
+=======
+      "es2018",
+>>>>>>> 8c14303 (initial commit)
       "dom"
     ]
   },
@@ -29,4 +36,8 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8c14303 (initial commit)
