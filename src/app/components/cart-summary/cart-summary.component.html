@@ -1,25 +1,31 @@
-<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Cart
-</a>
-<ul class="dropdown-menu">
-    <table class="table">
-        <thead>
-            <th>Name</th>
-            <th>Qty</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let cartItem of _cartItems">
-                <td>{{cartItem.product.productName}}</td>
-                <td>{{cartItem.quantity}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- <li >
+<div class="w-5">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Cart
+    </a>
+    <ul class="dropdown-menu">
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th></th>
+                <th>Qty</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cartItem of _cartItems">
+                    <td>{{cartItem.product.productName}}</td>
+                    <td>{{cartItem.product.unitPrice}}</td>
+                    <td>{{cartItem.quantity}}</td>
+                    <td>{{cartItem.product.unitPrice |currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <li >
         <span></span>
         <span></span>
     </li> -->
-    <li>
-        <hr class="dropdown-divider">
-    </li>
-    <li><a class="dropdown-item" href="#">Details</a></li>
-</ul>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Details</a></li>
+    </ul>
+</div>
