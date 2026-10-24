@@ -3,6 +3,7 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -10,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
+  filterText ="";
   dataLoaded = false;
   constructor(
     private productService: ProductService,
@@ -40,5 +42,8 @@ export class ProductComponent implements OnInit {
         this.products = response.data;
         this.dataLoaded = true;
       });
+  }
+  setFilterText(): void{
+  
   }
 }

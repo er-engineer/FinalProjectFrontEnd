@@ -1,20 +1,30 @@
 <div class="spinner-border" role="status" *ngIf="dataLoaded == false">
     <span class="visually-hidden">Loading…</span>
 </div>
+<div class="mb-3">
+    <label for="filterText" class="form-label">Search for Product</label>
+    <input type="text" [(ngModel)] = "filterText" class="form-control" id="filterText" placeholder="Product name here">
+    <button class="button mt-2" onclick="setFilterText()">Search</button>
+</div>
+<div class="alert alert-primary" *ngIf="filterText">
+ Searched for: {{filterText}} 
+</div>
 
-<table class="table" *ngIf="dataLoaded == true">
+<table class="table" *ngIf="dataLoaded == true" ng>
     <thead>
         <th>Id</th>
         <th>Category ID</th>
         <th>Name</th>
         <th>Price</th>
+        <th>VAT</th>
         <th>In Stock</th>
     </thead>
-    <tr *ngFor="let product of products">
-        <td>{{product.productId}}</td>
+    <tr *ngFor="let product of products|filterPipe:filterText">
+        <td>{{product.productId }}</td>
         <td>{{product.categoryId}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.unitPrice}}</td>
+        <td>{{product.productName |uppercase}}</td>
+        <td>{{product.unitPrice |currency}}</td>
+        <td>{{product.unitPrice |vatAdded:10 |currency}}</td>
         <td>{{product.unitsInStock}}</td>
     </tr>
 </table>
