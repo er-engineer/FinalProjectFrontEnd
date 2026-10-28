@@ -3,8 +3,7 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CartItems } from '../../models/cartItems';
-import { CartItem } from '../../models/cartItem';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -19,6 +18,7 @@ export class ProductComponent implements OnInit {
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
+    private cartService: CartService,
   ) {}
 
   ngOnInit(): void {
@@ -45,18 +45,15 @@ export class ProductComponent implements OnInit {
         this.dataLoaded = true;
       });
   }
+  
   addToCart(product: Product): void {
-    let item = CartItems.find(
-      (_cartItem) => _cartItem.product.productId === product.productId,
-    );
-    if (item) {
-      item.quantity++;
-    } else {
-      CartItems.push({ product: product, quantity: 1 });
+    if (this.cartService.addToCart(product)) {
       this.toastrService.success(
         'named product added to cart.',
         product.productName,
       );
+    } else {
+      this.toastrService.error("Error")
     }
   }
 }

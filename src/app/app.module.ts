@@ -30,7 +30,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      positionClass: "toast-bottom-right"
+      positionClass: "toast-bottom-left"
     })
   ],
   providers: [],

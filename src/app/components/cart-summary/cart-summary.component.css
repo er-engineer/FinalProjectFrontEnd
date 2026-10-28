@@ -1,0 +1,6 @@
+.dropdown {
+    min-width: 400px;
+}
+.clickable:hover{
+    cursor:pointer;
+}

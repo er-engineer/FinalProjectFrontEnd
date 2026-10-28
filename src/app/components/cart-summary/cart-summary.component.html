@@ -1,28 +1,39 @@
-<div class="w-5">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Cart
+<div *ngIf="_cartItems.length" class="dropdown">
+    
+    <a data-bs-auto-close="outside" class="nav-link dropdown-toggle" role="button" aria-expanded="false" (click)="toggleCartSummaryMenu()" >
+        Cart <span class="badge text-bg-primary">{{_cartItems.length}}</span>
     </a>
-    <ul class="dropdown-menu">
-        <table class="table">
+    <ul class="dropdown-menu p-3 shadow" [class.show]="_isOpen">
+        
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="m-0 fw-bold">Cart Summary</h6>
+            <button type="button" class="btn-close" aria-label="Close" (click)="toggleCartSummaryMenu()"></button>
+        </div>
+
+        <table class="table table-md align-middle">
             <thead>
                 <th>Name</th>
-                <th></th>
+                <th>Unit Price</th>
                 <th>Qty</th>
-                <th>Price</th>
+                <th>Total</th>
+                <th>Actions</th>
             </thead>
             <tbody>
                 <tr *ngFor="let cartItem of _cartItems">
                     <td>{{cartItem.product.productName}}</td>
-                    <td>{{cartItem.product.unitPrice}}</td>
+                    <td>{{cartItem.product.unitPrice | vatAdded:10 | currency}}</td>
                     <td>{{cartItem.quantity}}</td>
-                    <td>{{cartItem.product.unitPrice |currency}}</td>
+                    <td>{{(cartItem.product.unitPrice * cartItem.quantity) | vatAdded:10 |currency}}</td>
+                    <td><span class="badge text-bg-primary clickable" (click)="removeFromCart(cartItem.product)">Remove</span><span
+                            class="badge text-bg-danger clickable" (click)="removeFromCartByOne(cartItem)">-1</span><span
+                            class="badge text-bg-success clickable" (click)="addToCartByOne(cartItem)">+1</span></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-end fw-bold">Sub Total</td>
+                    <td>{{_subTotal |vatAdded:10 | currency }}</td>
                 </tr>
             </tbody>
         </table>
-        <!-- <li >
-        <span></span>
-        <span></span>
-    </li> -->
         <li>
             <hr class="dropdown-divider">
         </li>
