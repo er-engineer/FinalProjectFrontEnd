@@ -27,7 +27,6 @@ export class LoginGuard implements CanActivate {
       this.toastrService.error("You must be logged in to access this page");
       this.router.navigate(["login"]);
       return false;
-  
     }
   }
 }
